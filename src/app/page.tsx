@@ -2,7 +2,7 @@ import { ProductsList } from "@/components/ProductsList";
 import { ProtectedRoute } from "@/components/ProtectedRoute";
 
 export default async function Home() {
-	const res = await fetch('https://fakestoreapi.com/products');
+	const res = await fetch('https://fakestoreapi.com/products', { next: { revalidate: 3600 } });
 	const products = await res.json();
 	return (
 		<ProtectedRoute>

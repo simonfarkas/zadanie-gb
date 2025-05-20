@@ -1,6 +1,6 @@
 'use client';
 
-import React, { createContext, useState, useContext, useEffect, ReactNode } from 'react';
+import React, { createContext, useState, useContext, useEffect, ReactNode, useMemo } from 'react';
 import { useRouter } from 'next/navigation';
 
 type User = {
@@ -67,8 +67,16 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 		router.push('/');
 	};
 
+
+	const memoizedValue = useMemo(() => ({
+		user,
+		login,
+		logout,
+		loading,
+	}), [user, loading]);
+
 	return (
-		<AuthContext.Provider value={{ user, login, logout, loading }}>
+		<AuthContext.Provider value={memoizedValue}>
 			{children}
 		</AuthContext.Provider>
 	);

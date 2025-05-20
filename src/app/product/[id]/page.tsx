@@ -8,7 +8,7 @@ type Props = {
 export default async function Product({ params }: Props) {
 	const { id } = params;
 
-	const res = await fetch(`https://fakestoreapi.com/products/${id}`);
+	const res = await fetch(`https://fakestoreapi.com/products/${id}`, { next: { revalidate: 3600 } });
 	const product = await res.json();
 
 	if (!product) {

@@ -20,13 +20,13 @@ export const ProductCard: FC<ProductCardProps> = ({ product }) => (
 					fill
 					sizes="(max-width: 768px) 100vw, 33vw"
 					className="object-contain"
-					priority
+					loading='lazy'
 				/>
 				<div onClick={(e) => {
 					e.preventDefault()
 					e.stopPropagation()
 				}} className="absolute left-3 bottom-3 bg-black opacity-50 duration-200 hover:opacity-100 hover:bg-primary cursor-pointer p-2">
-					<ShoppingCart className="text-white" size={24} />
+					<ShoppingCart className="text-white" size={24} aria-label='Pridať do košíka' />
 				</div>
 			</div>
 

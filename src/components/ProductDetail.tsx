@@ -13,7 +13,7 @@ export const ProductDetail: FC<ProductDetailProps> = ({ product }) => {
 	const [quantity, setQuantity] = useState(1);
 
 	return (
-		<div className="max-w-6xl mx-auto p-4">
+		<div className="max-w-7xl mx-auto p-4">
 			<div className="flex flex-col md:flex-row gap-10">
 				<div className="flex flex-col gap-4 md:w-1/3">
 					<div className="relative w-full aspect-square rounded-xl p-4 bg-white">
@@ -23,6 +23,7 @@ export const ProductDetail: FC<ProductDetailProps> = ({ product }) => {
 							fill
 							className="object-contain"
 							sizes="(max-width: 768px) 100vw, 50vw"
+							priority
 						/>
 					</div>
 				</div>
@@ -40,13 +41,15 @@ export const ProductDetail: FC<ProductDetailProps> = ({ product }) => {
 							<button
 								onClick={() => setQuantity(quantity > 1 ? quantity - 1 : 1)}
 								className="cursor-pointer"
+								aria-label="Znížiť počet kusov"
 							>
 								<Minus />
 							</button>
-							<input className="w-20 border-2 text-center border-black" value={quantity} onChange={(e) => setQuantity(Number(e.target.value))} />
+							<input className="w-20 border-2 text-center border-black" aria-live="polite" value={quantity} onChange={(e) => setQuantity(Number(e.target.value))} />
 							<button
 								onClick={() => setQuantity(quantity + 1)}
 								className="mb-[2px] cursor-pointer"
+								aria-label="Zvýšiť počet kusov"
 							>
 								<Plus />
 							</button>
@@ -60,6 +63,6 @@ export const ProductDetail: FC<ProductDetailProps> = ({ product }) => {
 					</div>
 				</div>
 			</div>
-		</div>
+		</div >
 	);
 };

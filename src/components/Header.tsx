@@ -26,8 +26,8 @@ export const Header = () => {
 							<Image
 								src="https://gymbeam.sk/media/logo/stores/1/GB_Logo_Energy_SK.png"
 								alt="gymbeam logo"
-								width={200}
-								height={75}
+								width={175}
+								height={50}
 								className="h-auto w-full"
 								priority
 							/>
@@ -37,13 +37,12 @@ export const Header = () => {
 						<button onClick={() => setIsSearchVisible(!isSearchVisible)}>
 							<Search size={24} />
 						</button>
-						<ShoppingCart size={24} />
 						<div
 							className="relative"
 							onMouseEnter={() => setIsUserMenuOpen(true)}
 							onMouseLeave={() => setIsUserMenuOpen(false)}
 						>
-							<User size={24} className="cursor-pointer" />
+							<User size={24} className="cursor-pointer" aria-label='Užívateľ' />
 							{isUserMenuOpen && (
 								<UserMenu
 									onLogout={handleLogout}
@@ -52,6 +51,7 @@ export const Header = () => {
 								/>
 							)}
 						</div>
+						<ShoppingCart size={24} aria-label='Nákupný košík' />
 					</div>
 				</div>
 				<div className={`w-full md:w-1/2 lg:w-1/3 ${isSearchVisible ? 'block' : 'hidden'} md:block`}>
@@ -68,7 +68,6 @@ export const Header = () => {
 					</div>
 				</div>
 				<div className="hidden md:flex items-center gap-6">
-					<ShoppingCart size={24} />
 					<div
 						className="relative"
 						onMouseEnter={() => setIsUserMenuOpen(true)}
@@ -84,6 +83,7 @@ export const Header = () => {
 							/>
 						)}
 					</div>
+					<ShoppingCart size={24} />
 				</div>
 			</div>
 		</header>
