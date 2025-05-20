@@ -13,6 +13,7 @@ export const Header = () => {
 	const [isUserMenuOpen, setIsUserMenuOpen] = useState(false)
 	const userMenuRef = useRef<HTMLDivElement>(null)
 
+
 	const handleLogout = useCallback(() => {
 		logout()
 		setIsUserMenuOpen(false)
@@ -70,11 +71,13 @@ export const Header = () => {
 
 				<div className={`w-full md:w-1/2 lg:w-1/3 ${isSearchVisible ? 'block' : 'hidden'} md:block`}>
 					<div className="relative">
-						<input
-							type="text"
-							placeholder="Hľadajte v obchode"
-							className="border border-gray-300 rounded-md px-4 py-2 w-full"
-						/>
+						<div className='flex flex-row'>
+							<input className="h-7 w-full border-2 border-black px-2 text-sm outline-none disabled:border-secondary" placeholder="Hľadajte v obchode..." />							<button className="z-20 flex w-7 h-7 items-center justify-center bg-black text-white">
+								<Search size={20} />
+							</button>
+
+						</div>
+
 						<button className="absolute right-3 top-1/2 transform -translate-y-1/2 md:hidden">
 							<Search size={20} />
 						</button>

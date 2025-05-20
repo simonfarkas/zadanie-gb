@@ -12,23 +12,22 @@ export const AuthForm = () => {
 	const handleSubmit = (e: React.FormEvent) => {
 		e.preventDefault()
 		const formData = new FormData(e.target as HTMLFormElement)
-		const email = formData.get("email") as string
+		const username = formData.get("username") as string
 		const password = formData.get("password") as string
 
-		if (!email || !password) {
+		if (!username || !password) {
 			setError("Vyplňte všetky polia.")
 			return
 		}
 
-		const res = login(email, password)
+		const res = login(username, password).then((token) => {
+			if (token) {
+				router.push("/")
+			} else {
+				setError("Prihlásenie zlyhalo. Skontrolujte svoje údaje.")
+			}
+		})
 
-		if (typeof res !== 'boolean' && res.error) {
-			setError(res.error)
-		}
-		else {
-			setError(null)
-			router.push("/")
-		}
 	}
 
 	return (
@@ -36,11 +35,11 @@ export const AuthForm = () => {
 			<h2 className="text-2xl font-bold text-gray-800 mb-6">Prihlásenie užívateľa</h2>
 			<form onSubmit={handleSubmit}>
 				<div className="mb-4">
-					<label htmlFor="email" className="block text-gray-700 mb-1">E-mail</label>
+					<label htmlFor="username" className="block text-gray-700 mb-1">E-mail</label>
 					<input
-						id="email"
-						name="email"
-						type="email"
+						id="username"
+						name="username"
+						type="text"
 						className="w-full border border-gray-300 p-2 h-10"
 					/>
 				</div>

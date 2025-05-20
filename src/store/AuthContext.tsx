@@ -3,18 +3,13 @@
 import React, { createContext, useState, useContext, useEffect, ReactNode } from 'react';
 import { useRouter } from 'next/navigation';
 
-const users = [{
-	email: 'zakaznik@email.com',
-	password: 'password123'
-}];
-
 type User = {
-	email: string;
+	username: string;
 };
 
 type AuthContextType = {
 	user: User | null;
-	login: (email: string, password: string) => boolean | { error: string };
+	login: (username: string, password: string) => Promise<void>
 	logout: () => void;
 	loading: boolean;
 };
@@ -34,18 +29,20 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 		setLoading(false);
 	}, []);
 
-	const findUser = (user: User & { password: string }) => {
-		return users.find(u => u.email === user.email && u.password === user.password);
-	};
 
-	const login = (email: string, password: string): boolean | { error: string } => {
-		const foundUser = findUser({ email, password });
-		if (foundUser) {
-			setUser({ email: foundUser.email });
-			localStorage.setItem('user', JSON.stringify({ email: foundUser.email }));
-			return true;
+	const login = async (username: string, password: string): Promise<void> => {
+		const data = await fetch('https://fakestoreapi.com/auth/login', {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify({ username, password }),
+		}).then(response => response.json())
+
+		if (data?.token) {
+			setUser({ username });
+			localStorage.setItem('user', JSON.stringify({ username }));
 		}
-		return { error: 'Nesprávne prihlasovacie údaje.' };
+
+		return data.token;
 	};
 
 	const logout = () => {

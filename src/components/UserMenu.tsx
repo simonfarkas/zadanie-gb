@@ -6,7 +6,7 @@ export const UserMenu = ({
 }: {
 	isVisible: boolean
 	onLogout: () => void
-	user: { email: string } | null
+	user: { username: string } | null
 	menuRef: React.RefObject<HTMLDivElement>
 }) =>
 (
@@ -17,7 +17,7 @@ export const UserMenu = ({
 	>
 		{user ? (
 			<>
-				<div className="px-4 py-2 text-sm text-gray-700 border-b border-gray-100">{user.email}</div>
+				<div className="px-4 py-2 text-sm text-gray-700 border-b border-gray-100">{user.username}</div>
 				<button
 					onClick={onLogout}
 					className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
