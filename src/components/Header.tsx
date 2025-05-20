@@ -5,6 +5,7 @@ import Image from 'next/image'
 import { ShoppingCart, User, Search } from 'lucide-react'
 import { useAuth } from '@/store/AuthContext'
 import { UserMenu } from './UserMenu'
+import Link from 'next/link'
 
 export const Header = () => {
 	const { user, logout } = useAuth()
@@ -34,18 +35,21 @@ export const Header = () => {
 	}, [isUserMenuOpen])
 
 	return (
-		<header className="max-w-7xl mx-auto px-4 py-4 md:py-6">
+		<header className="max-w-7xl w-full mx-auto px-4 py-4 md:py-6">
 			<div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
 				<div className="flex justify-between items-center">
 					<div className="w-32 md:w-auto">
-						<Image
-							src="https://gymbeam.sk/media/logo/stores/1/GB_Logo_Energy_SK.png"
-							alt="gymbeam logo"
-							width={200}
-							height={75}
-							className="h-auto w-full"
-							priority
-						/>
+						<Link href='/'>
+							<Image
+								src="https://gymbeam.sk/media/logo/stores/1/GB_Logo_Energy_SK.png"
+								alt="gymbeam logo"
+								width={200}
+								height={75}
+								className="h-auto w-full"
+								priority
+							/>
+
+						</Link>
 					</div>
 					<div className="flex md:hidden items-center gap-4">
 						<button onClick={() => setIsSearchVisible(!isSearchVisible)}>
