@@ -46,7 +46,7 @@ export const AuthForm: FC<AuthFormProps> = ({ register }) => {
 	}
 
 	return (
-		<div className="max-w-md w-full mx-auto p-6 bg-white">
+		<div className="max-w-md mx-auto w-full p-6 bg-white">
 			<h2 className="text-2xl font-bold text-gray-800 mb-6">
 				{register ? "Registrácia užívateľa" : "Prihlásenie užívateľa"}
 			</h2>
