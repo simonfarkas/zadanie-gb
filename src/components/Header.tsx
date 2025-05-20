@@ -29,7 +29,7 @@ export const Header = () => {
 								width={175}
 								height={50}
 								className="h-auto w-full"
-								priority
+								loading='lazy'
 							/>
 						</Link>
 					</div>
