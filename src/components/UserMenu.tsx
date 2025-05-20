@@ -1,35 +1,37 @@
+import Link from "next/link"
+
 export const UserMenu = ({
-	isVisible,
 	onLogout,
 	user,
 	menuRef,
 }: {
-	isVisible: boolean
 	onLogout: () => void
 	user: { username: string } | null
 	menuRef: React.RefObject<HTMLDivElement>
-}) =>
-(
+}) => (
 	<div
 		ref={menuRef}
-		className={`absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-md py-1 z-10 transition-opacity ${isVisible ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
-			}`}
+		className="absolute right-0 mt-2 w-24 bg-white border-2 border-black z-10"
 	>
 		{user ? (
 			<>
-				<div className="px-4 py-2 text-sm text-gray-700 border-b border-gray-100">{user.username}</div>
+				<div className="pl-2 pr-4 py-2 text-sm hover:bg-gray-300">{user.username}</div>
 				<button
 					onClick={onLogout}
-					className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+					className="block w-full text-left pl-2 pr-4 py-2 text-sm cursor-pointer hover:bg-gray-300"
 				>
 					Odhlásenie
 				</button>
 			</>
 		) : (
-			<button className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-				Prihlásiť sa
-			</button>
+			<>
+				<Link href="/login" className="block w-full text-left pl-2 pr-4 py-2 text-sm hover:bg-gray-300">
+					Prihlásiť
+				</Link>
+				<Link href="/register" className="block w-full text-left pl-2 pr-4 py-2 text-sm hover:bg-gray-300">
+					Registrácia
+				</Link>
+			</>
 		)}
 	</div>
 )
-
