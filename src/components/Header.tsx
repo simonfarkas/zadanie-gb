@@ -56,12 +56,12 @@ export const Header = () => {
 				</div>
 				<div className={`w-full md:w-1/2 lg:w-1/3 ${isSearchVisible ? 'block' : 'hidden'} md:block`}>
 					<div className="relative">
-						<div className='flex flex-row'>
+						<form className='flex flex-row'>
 							<input className="h-7 w-full border-2 border-black px-2 text-sm outline-none disabled:border-secondary" placeholder="Hľadajte v obchode..." />
 							<button className="z-20 flex w-7 h-7 items-center justify-center bg-black text-white">
 								<Search size={20} />
 							</button>
-						</div>
+						</form>
 						<button className="absolute right-3 top-1/2 transform -translate-y-1/2 md:hidden">
 							<Search size={20} />
 						</button>

@@ -1,3 +1,5 @@
+'use client'
+
 import { FC } from "react";
 import { Product } from "@/types";
 import { ProductCard } from "./ProductCard";
@@ -13,3 +15,4 @@ export const ProductsList: FC<ProductListProps> = ({ products }) => (
 		))}
 	</div>
 );
+

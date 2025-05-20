@@ -22,7 +22,10 @@ export const ProductCard: FC<ProductCardProps> = ({ product }) => (
 					className="object-contain"
 					priority
 				/>
-				<div className="absolute left-3 bottom-3 bg-black opacity-50 duration-200 hover:opacity-100 hover:bg-primary cursor-pointer p-2">
+				<div onClick={(e) => {
+					e.preventDefault()
+					e.stopPropagation()
+				}} className="absolute left-3 bottom-3 bg-black opacity-50 duration-200 hover:opacity-100 hover:bg-primary cursor-pointer p-2">
 					<ShoppingCart className="text-white" size={24} />
 				</div>
 			</div>
