@@ -21,7 +21,7 @@ export const ProductsList: FC<ProductListProps> = ({ products }) => {
 		<>
 			<div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
 				{productsSlice.map((product, i) => (
-					<ProductCard product={product} key={product.id} priority={i < 9} />
+					<ProductCard product={product} key={product.id} priority={i <= lastIndex} />
 				))}
 			</div>
 			{lastIndex < products.length ? (
