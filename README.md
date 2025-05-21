@@ -32,6 +32,16 @@ npm run dev
 yarn dev
 ```
 
+Building for Production
+To create an optimized production build:
+bashnpm run build
+# or
+yarn build
+To test the production build locally:
+bashnpm run start
+# or
+yarn start
+
 Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## Authentication
