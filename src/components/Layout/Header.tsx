@@ -57,7 +57,7 @@ export const Header = () => {
 				<div className={`w-full md:w-1/2 lg:w-1/3 ${isSearchVisible ? 'block' : 'hidden'} md:block`}>
 					<div className="relative">
 						<form className='flex flex-row'>
-							<input className="h-7 w-full border-2 border-black px-2 text-sm outline-none disabled:border-secondary" placeholder="Hľadajte v obchode..." />
+							<input className="h-7 w-full border-2 border-black px-2 text-sm outline-none" placeholder="Hľadajte v obchode..." />
 							<button className="z-20 flex w-7 h-7 items-center justify-center bg-black text-white">
 								<Search size={20} />
 							</button>
