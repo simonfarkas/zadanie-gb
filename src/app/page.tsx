@@ -2,7 +2,6 @@ import { ProductsList } from "@/components/Product";
 import { ProtectedRoute } from "@/components/shared";
 
 export default async function Home() {
-
 	try {
 		const res = await fetch('https://fakestoreapi.com/products', {
 			next: { revalidate: 3600 },

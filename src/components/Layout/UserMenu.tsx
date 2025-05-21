@@ -1,16 +1,16 @@
 'use client'
 
 import Link from "next/link"
+import { FC } from "react"
 
-export const UserMenu = ({
-	onLogoutAction,
-	user,
-	menuRef,
-}: {
+
+interface UserMenuProps {
 	onLogoutAction: () => void
 	user: { username: string } | null
 	menuRef: React.RefObject<HTMLDivElement>
-}) => (
+}
+
+export const UserMenu: FC<UserMenuProps> = ({ onLogoutAction, user, menuRef }) => (
 	<div
 		ref={menuRef}
 		className="absolute right-0 mt-2 w-24 bg-white border-2 border-black z-10"
