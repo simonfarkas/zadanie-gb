@@ -13,7 +13,7 @@ export const ProductDetail: FC<ProductDetailProps> = ({ product }) => {
 	const [quantity, setQuantity] = useState(1);
 
 	return (
-		<div className="max-w-7xl mx-auto p-4">
+		<div className="max-w-7xl mx-auto p-4 mb-20">
 			<div className="flex flex-col md:flex-row gap-10">
 				<div className="flex flex-col gap-4 md:w-1/3">
 					<div className="relative w-full aspect-square rounded-xl p-4 bg-white">
