@@ -1,5 +1,3 @@
-"use client"
-
 export const FullscreenLoader = () => {
 	return (
 		<div className="w-full h-full flex items-center justify-center py-20">

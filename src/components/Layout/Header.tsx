@@ -45,7 +45,7 @@ export const Header = () => {
 							<User size={24} className="cursor-pointer" aria-label='Užívateľ' />
 							{isUserMenuOpen && (
 								<UserMenu
-									onLogout={handleLogout}
+									onLogoutAction={handleLogout}
 									user={user}
 									menuRef={userMenuRef as React.RefObject<HTMLDivElement>}
 								/>
@@ -77,7 +77,7 @@ export const Header = () => {
 						<div className="absolute w-full h-8 -bottom-8 z-10"></div>
 						{isUserMenuOpen && (
 							<UserMenu
-								onLogout={handleLogout}
+								onLogoutAction={handleLogout}
 								user={user}
 								menuRef={userMenuRef as React.RefObject<HTMLDivElement>}
 							/>

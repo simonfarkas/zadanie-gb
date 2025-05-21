@@ -1,11 +1,13 @@
+'use client'
+
 import Link from "next/link"
 
 export const UserMenu = ({
-	onLogout,
+	onLogoutAction,
 	user,
 	menuRef,
 }: {
-	onLogout: () => void
+	onLogoutAction: () => void
 	user: { username: string } | null
 	menuRef: React.RefObject<HTMLDivElement>
 }) => (
@@ -17,7 +19,7 @@ export const UserMenu = ({
 			<>
 				<div className="pl-2 pr-4 py-2 text-sm hover:bg-gray-300">{user.username}</div>
 				<button
-					onClick={onLogout}
+					onClick={onLogoutAction}
 					className="block w-full text-left pl-2 pr-4 py-2 text-sm cursor-pointer hover:bg-gray-300"
 				>
 					Odhlásenie
