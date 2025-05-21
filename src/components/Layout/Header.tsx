@@ -1,7 +1,7 @@
 'use client'
 import { useState, useRef } from 'react'
 import Image from 'next/image'
-import { ShoppingCart, User, Search } from 'lucide-react'
+import { ShoppingBasket, User, Search } from 'lucide-react'
 import { useAuth } from '@/store/AuthContext'
 import { UserMenu } from './UserMenu'
 import Link from 'next/link'
@@ -51,7 +51,7 @@ export const Header = () => {
 								/>
 							)}
 						</div>
-						<ShoppingCart size={24} aria-label='Nákupný košík' />
+						<ShoppingBasket size={24} aria-label='Nákupný košík' />
 					</div>
 				</div>
 				<div className={`w-full md:w-1/2 lg:w-1/3 ${isSearchVisible ? 'block' : 'hidden'} md:block`}>
@@ -83,7 +83,7 @@ export const Header = () => {
 							/>
 						)}
 					</div>
-					<ShoppingCart size={24} />
+					<ShoppingBasket size={24} />
 				</div>
 			</div>
 		</header>

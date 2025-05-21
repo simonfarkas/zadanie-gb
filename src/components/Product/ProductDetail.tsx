@@ -2,7 +2,7 @@
 
 import { Product } from "@/types";
 import Image from "next/image";
-import { Minus, Plus, ShoppingCart } from "lucide-react";
+import { Minus, Plus, ShoppingBasket } from "lucide-react";
 import { FC, useState } from "react";
 
 interface ProductDetailProps {
@@ -29,7 +29,7 @@ export const ProductDetail: FC<ProductDetailProps> = ({ product }) => {
 				</div>
 
 				<div className="flex flex-col gap-4 md:w-2/3">
-					<h1 className="text-2xl font-bold ">{product.title}</h1>
+					<h1 className="text-lg font-bold">{product.title}</h1>
 					<p>{product.description}</p>
 					<div className="flex items-center gap-2 text-sm">
 						<span className="bg-black text-white px-3 py-1 font-bold">SKLADOM</span>
@@ -57,7 +57,7 @@ export const ProductDetail: FC<ProductDetailProps> = ({ product }) => {
 						<button className="bg-primary text-white font-semibold px-6 py-2 hover:opacity-90 transition cursor-pointer">
 							<span className="flex items-center justify-center">
 								PRIDAŤ DO KOŠÍKA
-								<ShoppingCart className='ml-2' />
+								<ShoppingBasket className='ml-2' />
 							</span>
 						</button>
 					</div>

@@ -1,7 +1,6 @@
 'use client'
 
-import { Footer } from "@/components/Footer"
-import { Header } from "@/components/Header"
+import { Header, Footer } from "@/components/Layout"
 import { AuthProvider } from "@/store/AuthContext"
 
 

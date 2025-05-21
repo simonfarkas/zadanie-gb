@@ -1,5 +1,5 @@
-import { ProductDetail } from "@/components/ProductDetail";
-import { ProtectedRoute } from "@/components/ProtectedRoute";
+import { ProductDetail } from "@/components/Product";
+import { ProtectedRoute } from "@/components/shared";
 import { notFound } from "next/navigation";
 
 type Props = {
@@ -9,16 +9,24 @@ type Props = {
 export default async function Product({ params }: Props) {
 	const { id } = await params;
 
-	const res = await fetch(`https://fakestoreapi.com/products/${id}`, { next: { revalidate: 3600 } });
-	const product = await res.json();
+	try {
+		const res = await fetch(`https://fakestoreapi.com/products/${id}`, {
+			next: { revalidate: 3600 },
+		});
 
-	if (!product) {
+		if (!res.ok) {
+			return notFound();
+		}
+
+		const product = await res.json();
+
+		return (
+			<ProtectedRoute>
+				<ProductDetail product={product} />
+			</ProtectedRoute>
+		);
+	} catch {
 		notFound();
 	}
-
-	return (
-		<ProtectedRoute>
-			<ProductDetail product={product} />
-		</ProtectedRoute>
-	);
 }
+

@@ -1,4 +1,4 @@
-import { FullscreenLoader } from "@/components/FullscreenLoader"
+import { FullscreenLoader } from "@/components/shared"
 
 export default function Loading() {
 	return (

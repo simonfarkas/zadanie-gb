@@ -13,6 +13,10 @@ export const ProductsList: FC<ProductListProps> = ({ products }) => {
 
 	const loadMore = () => {
 		setLastIndex(prev => prev + 4);
+		setTimeout(() => {
+			window.scrollBy({ top: window.innerHeight, behavior: 'smooth' });
+
+		}, 100);
 	}
 
 	const productsSlice = products.slice(0, lastIndex);

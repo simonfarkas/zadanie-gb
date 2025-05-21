@@ -1,7 +1,7 @@
 "use client"
 
 import Image from "next/image"
-import { ShoppingCart } from "lucide-react"
+import { ShoppingBasket } from "lucide-react"
 import type { Product } from "@/types"
 import type { FC } from "react"
 import Link from "next/link"
@@ -32,7 +32,7 @@ export const ProductCard: FC<ProductCardProps> = ({ product, priority = false })
 					className="absolute left-3 bottom-3 bg-black opacity-50 duration-200 hover:opacity-100 hover:bg-primary cursor-pointer p-2"
 					aria-label="Add to cart"
 				>
-					<ShoppingCart className="text-white" size={24} aria-label="Pridať do košíka" />
+					<ShoppingBasket className="text-white" size={24} aria-label="Pridať do košíka" />
 				</div>
 			</div>
 
